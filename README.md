@@ -1,25 +1,46 @@
-# Design Library
+# Citriom Design System Migration Test
 
-This project is a React + TypeScript component library scaffolded with Vite. Use it to store, develop, and showcase your design components from Figma.
+This project is a technical test for Citriom, focused on migrating our current design system library from Figma to a new source that enables faster iterations for the design team.
 
-## Getting Started
+## Project Summary
+The goal of this test is to evaluate how we can rebuild and maintain our design system in a React + TypeScript environment, making it easier for designers and developers to collaborate and iterate quickly. By moving away from a Figma-only workflow, we can:
+- Rapidly prototype and test UI components in code
+- Reuse and compose components for new features
+- Ensure visual and functional consistency across products
+- Empower the design team to deliver and validate changes faster
 
-1. Install dependencies:
-   ```sh
-   npm install
-   ```
-2. Start the development server:
-   ```sh
-   npm run dev
-   ```
-3. Add your components to `src/components` and import them in `App.tsx` for preview.
+## Process Overview
+1. **Design Language Extraction:**
+   - We started by extracting the core design tokens (COLORS, TYPOGRAPHY, SPACING) from Figma and codifying them in the project.
+2. **Component Creation:**
+   - Built foundational components: `Button`, `ActionButton`, `ButtonGroup`, `Card`, and `WarningMessageModal`.
+   - Each component is designed to be flexible, reusable, and visually consistent, using the shared design tokens.
+3. **Showcase & Demo:**
+   - Created a demo page that displays all component variants, states, and responsive layouts.
+   - Added a responsive grid layout (`LayoutGrid`) and a horizontal button row (`ButtonRow`) for layout flexibility.
+4. **Refactor & Polish:**
+   - Extracted shared logic and constants for maintainability.
+   - Ensured all components are responsive and accessible.
 
-## Project Structure
-- `src/components/` — Place your reusable design components here.
-- `src/App.tsx` — Main entry for previewing and testing components.
+## Components Implemented
+- **Button:** Multiple variants (default, hot, danger, disabled), sizes, and states.
+- **ActionButton:** Icon-based button with variants and sizes.
+- **ButtonGroup:** Grouped buttons with correct border and icon layout.
+- **Card:** Generic, responsive card with title, content, media, and footer.
+- **WarningMessageModal:** Accessible modal for warnings and confirmations.
+- **LayoutGrid:** Responsive grid for arranging cards or other components.
+- **ButtonRow:** Responsive horizontal row for quick button layouts.
 
-## Customization
-- Update this README as you add new components or features.
+## Why This Approach?
+By building a robust set of reusable components, we:
+- Reduce design and development time for new features
+- Minimize inconsistencies and rework
+- Enable the design team to iterate in code, not just in Figma
+- Lay the groundwork for a scalable, maintainable design system
+
+---
+
+This repository is part of Citriom's ongoing effort to modernize and accelerate our design system processes. For questions or feedback, please contact the design system team.
 
 ## Expanding the ESLint configuration
 
