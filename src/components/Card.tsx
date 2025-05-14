@@ -3,7 +3,8 @@ import { COLORS } from './colors';
 import { SPACING } from './spacing';
 import { TYPOGRAPHY } from './typography';
 
-export interface CardProps extends React.HTMLAttributes<HTMLDivElement> {
+// Remove 'title' from HTMLAttributes to avoid type conflict
+export interface CardProps extends Omit<React.HTMLAttributes<HTMLDivElement>, 'title'> {
   /** Optional title for the card */
   title?: React.ReactNode;
   /** Optional content for the card */
@@ -102,12 +103,23 @@ function ButtonRow({ buttons }: { buttons: React.ReactNode[] }) {
         gap: SPACING.md,
         width: '100%',
         justifyContent: 'center',
-        alignItems: 'center',
+        alignItems: 'stretch', // Use stretch for better vertical alignment
         margin: `${SPACING.lg}px 0`,
       }}
     >
       {buttons.map((btn, idx) => (
-        <div key={idx} style={{ flex: '1 1 160px', minWidth: 120, maxWidth: 240 }}>{btn}</div>
+        <div
+          key={idx}
+          style={{
+            flex: '1 1 160px',
+            minWidth: 120,
+            maxWidth: 240,
+            display: 'flex',
+            alignItems: 'stretch',
+          }}
+        >
+          {btn}
+        </div>
       ))}
     </div>
   );
