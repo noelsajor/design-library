@@ -2,14 +2,15 @@ import React from 'react';
 import { COLORS } from './colors';
 import { SPACING } from './spacing';
 import { TYPOGRAPHY } from './typography';
-import { IconUser, IconChevronDown } from '@tabler/icons-react';
+import { IconChevronDown } from '@tabler/icons-react';
 
 interface ButtonGroupProps {
   size?: 'default' | 'narrow';
-  buttons: Array<{ label: string; onClick?: () => void; }>;
+  buttons: Array<{ label: string; onClick?: () => void; leftIcon?: React.ReactNode; }>;
+  hideRightIcons?: boolean;
 }
 
-const ButtonGroup: React.FC<ButtonGroupProps> = ({ size = 'default', buttons }) => {
+const ButtonGroup: React.FC<ButtonGroupProps> = ({ size = 'default', buttons, hideRightIcons }) => {
   const isNarrow = size === 'narrow';
   const fontStyle = isNarrow ? TYPOGRAPHY.buttonLabelS : TYPOGRAPHY.buttonLabel;
   const fontSize = fontStyle.fontSize;
@@ -55,9 +56,9 @@ const ButtonGroup: React.FC<ButtonGroupProps> = ({ size = 'default', buttons }) 
           }}
           onClick={btn.onClick}
         >
-          <IconUser size={iconSize} stroke={1.5} color={COLORS.gunmetal} />
+          {btn.leftIcon && <span style={{ display: 'flex', alignItems: 'center' }}>{btn.leftIcon}</span>}
           <span style={{ flex: 1, textAlign: 'center', color: COLORS.gunmetal, fontSize, fontWeight, fontFamily }}>{btn.label}</span>
-          <IconChevronDown size={iconSize} stroke={1.5} color={COLORS.gunmetal} />
+          {!hideRightIcons && <IconChevronDown size={iconSize} stroke={1.5} color={COLORS.gunmetal} />}
         </button>
       ))}
     </div>
