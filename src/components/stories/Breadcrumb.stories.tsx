@@ -1,4 +1,3 @@
-import React from 'react';
 import { IconHome, IconChevronRight, IconBook, IconSettings } from '@tabler/icons-react';
 import Breadcrumb from '../Breadcrumb';
 

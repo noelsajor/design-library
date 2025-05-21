@@ -52,7 +52,6 @@ const ResolveWarningsPage: React.FC = () => {
   const [selected, setSelected] = useState<any | null>(null);
   const [wizardStep, setWizardStep] = useState<number>(0);
   const [success, setSuccess] = useState<boolean>(false);
-  const [completedWarnings, setCompletedWarnings] = useState<any[]>([]);
   const [warnings, setWarnings] = useState(warningRequests);
 
   // Handler for starting the wizard
@@ -72,7 +71,7 @@ const ResolveWarningsPage: React.FC = () => {
       if (selected) {
         setTimeout(() => {
           setWarnings((prev: any[]) => prev.filter(w => w.id !== selected.id));
-          setCompletedWarnings((prev: any[]) => [...prev, selected]);
+          // setCompletedWarnings((prev: any[]) => [...prev, selected]);
           setSelected(null);
         }, 1200); // Give user time to see the success message
       }
@@ -139,7 +138,7 @@ const ResolveWarningsPage: React.FC = () => {
       <main style={{ width: '100%', maxWidth: 1440, minHeight: 1024, margin: '0 auto', padding: `${SPACING.xxl}px ${SPACING.xl}px`, boxSizing: 'border-box', flex: 1, display: 'flex', flexDirection: 'column' }}>
         <Breadcrumb items={[
           { label: 'Design Library', to: '/design-library/' },
-          { label: 'Dashboard', to: '/design-library/dashboard' },
+          { label: 'Dashboard', to: '/design-library/dashboard/' },
           { label: 'Resolve Warnings' }
         ]} />
         <h1 style={{ ...TYPOGRAPHY.titleDefault, margin: '32px 0 16px 0', color: COLORS.navyBlue, textAlign: 'left', textShadow: '0 2px 8px #fff' }}>Resolve Warnings</h1>
@@ -196,7 +195,7 @@ const ResolveWarningsPage: React.FC = () => {
             <div style={{ minWidth: 900, maxWidth: 1100, width: 950, borderRadius: 18, boxShadow: '0 12px 48px rgba(18,96,128,0.18)', background: COLORS.white, border: `2px solid ${COLORS.lightSilver}`, padding: 0, position: 'relative', display: 'flex', flexDirection: 'column', alignItems: 'stretch' }}>
               {/* Stepper Bar (replaced with Stepper component) */}
               {!success && (
-                <Stepper steps={stepperSteps} currentStep={wizardStep} style={{ marginBottom: 0 }} />
+                <Stepper steps={stepperSteps} style={{ marginBottom: 0 }} />
               )}
               {/* Modal Header */}
               <div style={{ background: COLORS.white, padding: '32px 48px 0 48px', display: 'flex', alignItems: 'center', justifyContent: 'space-between', borderTopLeftRadius: 18, borderTopRightRadius: 18 }}>

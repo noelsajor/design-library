@@ -64,7 +64,7 @@ const AllRequestsTablePage: React.FC = () => {
       <main style={{ width: '100%', maxWidth: 1440, minHeight: 1024, margin: '0 auto', padding: `${SPACING.xxl}px ${SPACING.xl}px`, boxSizing: 'border-box', flex: 1, display: 'flex', flexDirection: 'column', }}>
         <Breadcrumb items={[
           { label: 'Design Library', to: '/design-library/' },
-          { label: 'Dashboard', to: '/design-library/dashboard' },
+          { label: 'Dashboard', to: '/design-library/dashboard/' },
           { label: 'All Requests' }
         ]} />
         <h1 style={{ ...TYPOGRAPHY.titleDefault, margin: '32px 0 16px 0', color: COLORS.navyBlue, textAlign: 'left' }}>All Requests</h1>

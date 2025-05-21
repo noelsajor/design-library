@@ -1,7 +1,6 @@
 import React from 'react';
 import { COLORS } from './colors';
 import { TYPOGRAPHY } from './typography';
-import { SPACING } from './spacing';
 
 export type Step = {
   label: string;
@@ -10,7 +9,6 @@ export type Step = {
 
 interface StepperProps {
   steps: Step[];
-  currentStep: number;
   style?: React.CSSProperties;
 }
 
@@ -25,7 +23,7 @@ const getStepColor = (state: Step['state']) => {
   }
 };
 
-const Stepper: React.FC<StepperProps> = ({ steps, currentStep, style }) => {
+const Stepper: React.FC<StepperProps> = ({ steps, style }) => {
   return (
     <nav aria-label="Progress" style={{ width: '100%', ...style }}>
       <ol style={{
@@ -41,7 +39,6 @@ const Stepper: React.FC<StepperProps> = ({ steps, currentStep, style }) => {
         {steps.map((step, idx) => {
           const isCompleted = step.state === 'completed';
           const isActive = step.state === 'active';
-          const isUpcoming = step.state === 'upcoming';
           const circleColor = getStepColor(step.state);
           const textColor = isCompleted ? COLORS.teal : isActive ? COLORS.navyBlue : COLORS.silver;
           return (
