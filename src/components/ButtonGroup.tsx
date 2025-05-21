@@ -55,8 +55,10 @@ const ButtonGroup: React.FC<ButtonGroupProps> = ({ size = 'default', buttons, hi
             whiteSpace: 'nowrap',
           }}
           onClick={btn.onClick}
+          tabIndex={0}
+          aria-label={btn.label}
         >
-          {btn.leftIcon && <span style={{ display: 'flex', alignItems: 'center' }}>{btn.leftIcon}</span>}
+          {btn.leftIcon && <span style={{ display: 'flex', alignItems: 'center', marginRight: 8 }}>{btn.leftIcon}</span>}
           <span style={{ flex: 1, textAlign: 'center', color: COLORS.gunmetal, fontSize, fontWeight, fontFamily }}>{btn.label}</span>
           {!hideRightIcons && <IconChevronDown size={iconSize} stroke={1.5} color={COLORS.gunmetal} />}
         </button>

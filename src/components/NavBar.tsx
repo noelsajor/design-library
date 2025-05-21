@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import { IconBell, IconHelp, IconSettings, IconGridDots, IconMenu2 } from '@tabler/icons-react';
 import { COLORS } from './colors';
 import { TYPOGRAPHY } from './typography';
-import { SPACING } from './spacing';
 
 const userImg = 'https://randomuser.me/api/portraits/men/32.jpg'; // Replace with your user image if needed
 

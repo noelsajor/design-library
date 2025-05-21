@@ -13,9 +13,12 @@ interface ButtonProps {
   isActive?: boolean;
   onClick?: () => void; // Allow onClick for modal actions
   hideIcons?: boolean; // Hide icons for modal usage
+  className?: string; // Allow custom className for style overrides
+  style?: React.CSSProperties; // Allow custom inline style for grouped layouts
+  grouped?: boolean; // New prop: disables internal border and borderRadius for seamless grouping
 }
 
-export const Button: React.FC<ButtonProps> = ({ label, size = 'default', type = 'default', isHovered: forcedHovered, isActive: forcedActive, onClick, hideIcons }) => {
+export const Button: React.FC<ButtonProps> = ({ label, size = 'default', type = 'default', isHovered: forcedHovered, isActive: forcedActive, onClick, hideIcons, className, style, grouped }) => {
   const [isHovered, setIsHovered] = useState(false);
   const [isActive, setIsActive] = useState(false);
 
@@ -90,12 +93,13 @@ export const Button: React.FC<ButtonProps> = ({ label, size = 'default', type = 
 
   return (
     <button
+      className={className}
       style={{
         display: 'flex',
         alignItems: 'center',
         gap: contentGap,
-        border: `2.5px solid ${colors.border}`,
-        borderRadius,
+        border: grouped ? 'none' : `2.5px solid ${colors.border}`,
+        borderRadius: grouped ? undefined : borderRadius,
         background: colors.background,
         color: colors.text,
         fontSize,
@@ -105,12 +109,13 @@ export const Button: React.FC<ButtonProps> = ({ label, size = 'default', type = 
         boxSizing: 'border-box',
         cursor: isBtnDisabled ? 'not-allowed' : 'pointer',
         minWidth,
-        justifyContent: hideIcons ? 'center' : 'flex-start', // Center text if icons are hidden
+        justifyContent: hideIcons ? 'center' : 'flex-start',
         opacity: isBtnDisabled ? 0.7 : 1,
         transition: 'background 0.2s, border 0.2s, color 0.2s',
-        whiteSpace: 'nowrap', // Prevent multi-line for all button text
+        whiteSpace: 'nowrap',
         overflow: 'hidden',
         textOverflow: 'ellipsis',
+        ...style,
       }}
       onClick={onClick}
       onMouseEnter={() => !isBtnDisabled && setIsHovered(true)}

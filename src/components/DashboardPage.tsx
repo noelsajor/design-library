@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import NavBar from './NavBar';
 import Card, { LayoutGrid } from './Card';
 import Button from './Button';
 import { COLORS } from './colors';
@@ -8,6 +7,8 @@ import { SPACING } from './spacing';
 import { ButtonGroup } from './index';
 import { useNavigate } from 'react-router-dom';
 import { IconPlus, IconDownload, IconSettings as IconSettings2 } from '@tabler/icons-react';
+import NavBar from './NavBar'; // Import NavBar
+import Breadcrumb from './Breadcrumb';
 
 const dashboardCards = [
 	{
@@ -16,7 +17,7 @@ const dashboardCards = [
 		description: 'Total open requests',
 		color: COLORS.navyBlue,
 		button: 'View All',
-		onClick: (navigate: ReturnType<typeof useNavigate>) => navigate('/requests'),
+		onClick: (navigate: ReturnType<typeof useNavigate>) => navigate('/design-library/requests'),
 	},
 	{
 		title: 'In Progress',
@@ -24,7 +25,7 @@ const dashboardCards = [
 		description: 'Requests being processed',
 		color: COLORS.teal,
 		button: 'Track',
-		onClick: (navigate: ReturnType<typeof useNavigate>) => navigate('/track-in-progress'),
+		onClick: (navigate: ReturnType<typeof useNavigate>) => navigate('/design-library/track-in-progress'),
 	},
 	{
 		title: 'Completed',
@@ -32,7 +33,7 @@ const dashboardCards = [
 		description: 'Requests completed this month',
 		color: COLORS.elBosqueGreen,
 		button: 'Report',
-		onClick: (navigate: ReturnType<typeof useNavigate>) => navigate('/report-complete'),
+		onClick: (navigate: ReturnType<typeof useNavigate>) => navigate('/design-library/report-complete'),
 	},
 	{
 		title: 'Warnings',
@@ -40,7 +41,7 @@ const dashboardCards = [
 		description: 'Critical issues to review',
 		color: COLORS.sangriaRed,
 		button: 'Resolve',
-		onClick: (navigate: ReturnType<typeof useNavigate>) => navigate('/resolve-warnings'),
+		onClick: (navigate: ReturnType<typeof useNavigate>) => navigate('/design-library/resolve-warnings'),
 	},
 ];
 
@@ -164,7 +165,7 @@ const ownerOptions = ['All', 'John Doe', 'Jane Smith', 'Alice Lee', 'Bob Brown']
 const priorityOptions = ['All', 'Low', 'Medium', 'High'];
 const departmentOptions = ['All', 'IT', 'Admin', 'Facilities', 'Security'];
 
-const DashboardPage: React.FC<{ showOnlyTable?: boolean }> = ({ showOnlyTable }) => {
+const DashboardPage: React.FC<{ showOnlyTable?: boolean, setDetailsRequest?: (req: any) => void }> = ({ showOnlyTable, setDetailsRequest }) => {
 	// Pagination and filter state
 	const [page, setPage] = useState(1);
 	const [status, setStatus] = useState('All');
@@ -397,7 +398,7 @@ const DashboardPage: React.FC<{ showOnlyTable?: boolean }> = ({ showOnlyTable })
 											<td style={{ padding: '12px 12px', color: COLORS.gunmetal, textAlign: 'left' }}>{req.created}</td>
 											<td style={{ padding: '12px 12px', color: COLORS.gunmetal, textAlign: 'left' }}>{req.priority}</td>
 											<td style={{ padding: '12px 12px', textAlign: 'left' }}>
-												<Button label="Details" type="default" size="narrow" hideIcons />
+												<Button label="Details" type="default" size="narrow" hideIcons onClick={() => setDetailsRequest && setDetailsRequest(req)} />
 											</td>
 										</tr>
 									))}
@@ -505,17 +506,17 @@ const DashboardPage: React.FC<{ showOnlyTable?: boolean }> = ({ showOnlyTable })
 	return (
 		<div
 			style={{
-				
 				background: COLORS.almostWhite,
 				display: 'flex',
 				flexDirection: 'column',
 				alignItems: 'center',
 				width: '100vw',
-				
+				minHeight: '100vh',
 			}}
 		>
-			
+			<NavBar />
 			<main style={{ width: '100%', maxWidth: 1440, minHeight: 1024, height: 1024, margin: '0 auto', padding: `${SPACING.xxl}px ${SPACING.xl}px`, boxSizing: 'border-box', flex: 1, display: 'flex', flexDirection: 'column', gap: SPACING.xxl }}>
+				<Breadcrumb items={[{ label: 'Design Library', to: '/design-library/' }, { label: 'Dashboard' }]} />
 				<header style={{ marginBottom: SPACING.xl, textAlign: 'left' }}>
 					<h1
 						style={{

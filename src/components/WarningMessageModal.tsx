@@ -3,6 +3,7 @@ import { COLORS } from './colors';
 import { TYPOGRAPHY } from './typography';
 import { SPACING } from './spacing';
 import { Button } from './index';
+import { useNavigate } from 'react-router-dom';
 
 interface WarningMessageModalProps {
   onCancel: () => void;
@@ -13,6 +14,7 @@ const WarningMessageModal: React.FC<WarningMessageModalProps> = ({
   onCancel,
   onContinue,
 }) => {
+  const navigate = useNavigate();
   return (
     <div style={{
       position: 'fixed',
@@ -48,7 +50,7 @@ const WarningMessageModal: React.FC<WarningMessageModalProps> = ({
           whiteSpace: 'normal', // Allow multi-line
           overflow: 'visible',
           textOverflow: 'clip',
-        }}>Optional short title</div>
+        }}>See our demo app?</div>
         <div style={{
           ...TYPOGRAPHY.bodyBigL,
           color: COLORS.gunmetal,
@@ -56,14 +58,27 @@ const WarningMessageModal: React.FC<WarningMessageModalProps> = ({
           whiteSpace: 'normal', // Allow multi-line
           overflow: 'visible',
           textOverflow: 'clip',
-        }}>Include: the reason for the warning and the potential problem, how someone should act, and what happens if they don’t act.<br /><br />Keep messages to 1 to 2 sentences.</div>
+        }}>You can keep scrolling here our just migrated Design library made with React + Vite and Copilot or take a look to these components in action in our live demo app.</div>
+        <div style={{
+          ...TYPOGRAPHY.bodySmallSM,
+          color: COLORS.slateGray,
+          background: COLORS.lightSilver,
+          borderRadius: 3,
+          padding: '10px 14px',
+          marginBottom: SPACING.lg,
+        }}>
+          <strong>Note:</strong> This modal (and the library) was migrated directly from Figma, demonstrating how quickly Figma designs can be turned into reusable React components.
+        </div>
         <div style={{
           display: 'flex',
           flexDirection: 'row',
           justifyContent: 'flex-end',
           gap: SPACING.md,
         }}>
-          <Button label="Cancel" type="default" onClick={onCancel} hideIcons size="default" />
+          <Button label="Visit demo app" type="default" onClick={() => {
+            navigate('/design-library/dashboard');
+            onCancel();
+          }} hideIcons size="default" />
           <Button label="Continue" type="hot" onClick={onContinue} hideIcons size="default" />
         </div>
       </div>
