@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { HashRouter as Router, Routes, Route } from 'react-router-dom';
 import DashboardPage from './components/DashboardPage';
 import AllRequestsTablePage from './components/AllRequestsTablePage';
 import TrackInProgressPage from './components/TrackInProgressPage';

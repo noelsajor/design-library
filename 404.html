@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="refresh" content="0; url=/design-library/" />
+    <script>
+      // For GitHub Pages: redirect all 404s to index.html for SPA routing
+      var l = window.location;
+      var path = l.pathname.replace(/^\/design-library/, '');
+      var hash = l.hash || '';
+      var search = l.search || '';
+      var newUrl = '/design-library/' + (path ? '#' + path : '') + hash + search;
+      window.location.replace(newUrl);
+    </script>
+  </head>
+  <body>
+    <h1>Redirecting...</h1>
+    <p>If you are not redirected, <a id="redirect-link" href="/design-library/">click here</a>.</p>
+    <script>
+      document.getElementById('redirect-link').href = newUrl;
+    </script>
+  </body>
+</html>

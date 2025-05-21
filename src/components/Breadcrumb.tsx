@@ -1,5 +1,6 @@
 import { COLORS } from './colors';
 import { TYPOGRAPHY } from './typography';
+import { Link } from 'react-router-dom';
 
 export interface BreadcrumbItem {
   label: string;
@@ -18,8 +19,8 @@ const Breadcrumb: React.FC<{
         {items.map((item, idx) => (
           <li key={item.label} style={{ display: 'flex', alignItems: 'center' }}>
             {item.to ? (
-              <a
-                href={item.to}
+              <Link
+                to={item.to}
                 style={{
                   ...TYPOGRAPHY.bodySmallSM,
                   color: COLORS.navyBlue,
@@ -30,8 +31,8 @@ const Breadcrumb: React.FC<{
                   transition: 'background 0.2s',
                   display: 'flex',
                   alignItems: 'center',
-                  justifyContent: 'center', // Center align icon and label
-                  gap: 4, // Add gap for icon and label
+                  justifyContent: 'center',
+                  gap: 4,
                 }}
                 onMouseOver={e => (e.currentTarget.style.background = COLORS.lightSilver)}
                 onMouseOut={e => (e.currentTarget.style.background = 'transparent')}
@@ -40,7 +41,7 @@ const Breadcrumb: React.FC<{
               >
                 {item.icon && <span style={{ display: 'flex', alignItems: 'center' }}>{item.icon}</span>}
                 <span style={{ display: 'flex', alignItems: 'center' }}>{item.label}</span>
-              </a>
+              </Link>
             ) : (
               <span style={{ ...TYPOGRAPHY.bodySmallSM, color: COLORS.gunmetal, fontWeight: 600, padding: '0 4px', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 4 }}>
                 {item.icon && <span style={{ display: 'flex', alignItems: 'center' }}>{item.icon}</span>}
