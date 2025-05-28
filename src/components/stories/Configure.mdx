@@ -1,4 +1,18 @@
 import { Meta } from "@storybook/blocks";
+import Github from "./assets/github.svg";
+import Discord from "./assets/discord.svg";
+import Youtube from "./assets/youtube.svg";
+// import Tutorials from "./assets/tutorials.svg";
+// import Styling from "./assets/styling.png";
+// import Context from "./assets/context.png";
+// import Assets from "./assets/assets.png";
+// import Docs from "./assets/docs.png";
+// import Share from "./assets/share.png";
+// import FigmaPlugin from "./assets/figma-plugin.png";
+// import Testing from "./assets/testing.png";
+// import Accessibility from "./assets/accessibility.png";
+// import Theming from "./assets/theming.png";
+// import AddonLibrary from "./assets/addon-library.png";
 
 export const RightArrow = () => <svg 
     viewBox="0 0 14 14" 
@@ -26,10 +40,6 @@ export const RightArrow = () => <svg
   </div>
   <div className="sb-section">
     <div className="sb-section-item">
-      <img
-        src="https://via.placeholder.com/150"
-        alt="A wall of logos representing different styling technologies"
-      />
       <h4 className="sb-section-item-heading">Add styling and CSS</h4>
       <p className="sb-section-item-paragraph">Like with web applications, there are many ways to include CSS within Storybook. Learn more about setting up styling within Storybook.</p>
       <a
@@ -38,10 +48,10 @@ export const RightArrow = () => <svg
       >Learn more<RightArrow /></a>
     </div>
     <div className="sb-section-item">
-      <img
-        src="https://via.placeholder.com/150"
+      {/* <img
+        src={Context}
         alt="An abstraction representing the composition of data for a component"
-      />
+      /> */}
       <h4 className="sb-section-item-heading">Provide context and mocking</h4>
       <p className="sb-section-item-paragraph">Often when a story doesn't render, it's because your component is expecting a specific environment or context (like a theme provider) to be available.</p>
       <a
@@ -50,7 +60,7 @@ export const RightArrow = () => <svg
       >Learn more<RightArrow /></a>
     </div>
     <div className="sb-section-item">
-      <img src="https://via.placeholder.com/150" alt="A representation of typography and image assets" />
+      {/* <img src={Assets} alt="A representation of typography and image assets" /> */}
       <div>
         <h4 className="sb-section-item-heading">Load assets and resources</h4>
         <p className="sb-section-item-paragraph">To link static files (like fonts) to your projects and stories, use the
@@ -74,7 +84,7 @@ export const RightArrow = () => <svg
   <div className="sb-section">
     <div className="sb-features-grid">
       <div className="sb-grid-item">
-        <img src="https://via.placeholder.com/150" alt="A screenshot showing the autodocs tag being set, pointing a docs page being generated" />
+        {/* <img src={Docs} alt="A screenshot showing the autodocs tag being set, pointing a docs page being generated" /> */}
         <h4 className="sb-section-item-heading">Autodocs</h4>
         <p className="sb-section-item-paragraph">Auto-generate living,
           interactive reference documentation from your components and stories.</p>
@@ -84,16 +94,16 @@ export const RightArrow = () => <svg
         >Learn more<RightArrow /></a>
       </div>
       <div className="sb-grid-item">
-        <img src="https://via.placeholder.com/150" alt="A browser window showing a Storybook being published to a chromatic.com URL" />
+        {/* <img src={Share} alt="A browser window showing a Storybook being published to a chromatic.com URL" /> */}
         <h4 className="sb-section-item-heading">Publish to Chromatic</h4>
         <p className="sb-section-item-paragraph">Publish your Storybook to review and collaborate with your entire team.</p>
         <a
-          href="https://storybook.js.org/docs/sharing/publish-storybook/?renderer=react#publish-storybook-with-chromatic"
+          href="https://storybook.js.org/docs/writing-docs/publish-storybook/?renderer=react"
           target="_blank"
         >Learn more<RightArrow /></a>
       </div>
       <div className="sb-grid-item">
-        <img src="https://via.placeholder.com/150" alt="Windows showing the Storybook plugin in Figma" />
+        {/* <img src={FigmaPlugin} alt="Windows showing the Storybook plugin in Figma" /> */}
         <h4 className="sb-section-item-heading">Figma Plugin</h4>
         <p className="sb-section-item-paragraph">Embed your stories into Figma to cross-reference the design and live
           implementation in one place.</p>
