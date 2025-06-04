@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import ButtonGroup from '../ButtonGroup';
+import ButtonGroup from '../ButtonGroup.tsx';
 import { IconUser, IconChevronDown } from '@tabler/icons-react';
 
 const meta: Meta<typeof ButtonGroup> = {

@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import ActionButton from '../ActionButton';
+import ActionButton from '../ActionButton.tsx';
 
 const meta: Meta<typeof ActionButton> = {
   title: 'Design System/ActionButton',

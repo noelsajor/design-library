@@ -1,5 +1,5 @@
 import { IconHome, IconChevronRight, IconBook, IconSettings } from '@tabler/icons-react';
-import Breadcrumb from '../Breadcrumb';
+import Breadcrumb from '../Breadcrumb.tsx';
 
 export default {
   title: 'Design System/Breadcrumb',

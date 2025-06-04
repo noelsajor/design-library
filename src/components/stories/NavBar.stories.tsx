@@ -1,4 +1,4 @@
-import NavBar from '../NavBar';
+import NavBar from '../NavBar.tsx';
 
 export default {
   title: 'Design System/NavBar', // Group NavBar under Design System

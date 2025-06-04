@@ -1,3 +1,4 @@
+import { mergeConfig } from 'vite';
 import type { StorybookConfig } from '@storybook/react-vite';
 
 const config: StorybookConfig = {
@@ -10,7 +11,8 @@ const config: StorybookConfig = {
     "@storybook/addon-essentials",
     "@storybook/addon-onboarding",
     "@chromatic-com/storybook",
-    "@storybook/experimental-addon-test"
+    "@storybook/addon-vitest",
+    "@storybook/addon-docs" // Added addon-docs for MDX support
   ],
   "framework": {
     "name": "@storybook/react-vite",
@@ -18,6 +20,14 @@ const config: StorybookConfig = {
   },
   "staticDirs": [
     "../public"
-  ]
+  ],
+  "viteFinal": async (config) => {
+    return mergeConfig(config, {
+      optimizeDeps: {
+        include: ["@storybook/mdx2-csf"] // Ensure MDX dependencies are optimized
+      }
+    });
+  }
 };
+
 export default config;
